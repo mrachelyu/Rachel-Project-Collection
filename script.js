@@ -1,3 +1,4 @@
+console.log("JS loaded!");
 function showPage(pageId) {
     // 隱藏所有頁面
     const sections = document.querySelectorAll('.page-section');
@@ -16,7 +17,7 @@ function showPage(pageId) {
 
     // 點擊 Logo 回首頁時不需要高亮特定按鈕
     if(pageId === 'home') {
-        document.querySelector('button[onclick="showPage('home')"]').classList.add('active');
+        document.querySelector("button[onclick=\"showPage('home')\"]").classList.add('active');
     } else {
         // 找出對應的按鈕並加上 active
         const activeBtn = Array.from(buttons).find(btn => btn.getAttribute('onclick').includes(pageId));
