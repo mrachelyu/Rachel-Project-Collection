@@ -3,239 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的專案作品集 | My Portfolio</title>
+    <title>余孟潔 Meng Chieh Yu | AI Engineer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* --- 全域設定 --- */
-        :root {
-            --primary-color: #2563eb; /* 主色調：科技藍 */
-            --bg-color: #f8fafc;      /* 背景色：極淺灰 */
-            --text-color: #1e293b;    /* 文字色：深灰藍 */
-            --card-bg: #ffffff;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-
-        a { text-decoration: none; color: inherit; transition: 0.3s; }
-
-        /* --- 頁首 Header --- */
-        header {
-            background-color: var(--card-bg);
-            padding: 4rem 2rem;
-            text-align: center;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-
-        .profile-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; color: var(--primary-color); }
-        .subtitle { font-size: 1.2rem; color: #64748b; margin-bottom: 1.5rem; }
-        
-        .social-links a {
-            font-size: 1.5rem;
-            margin: 0 10px;
-            color: #64748b;
-        }
-        .social-links a:hover { color: var(--primary-color); transform: translateY(-3px); }
-
-        /* --- 主要內容區 --- */
-        main {
-            max-width: 1200px;
-            margin: 3rem auto;
-            padding: 0 2rem;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            font-size: 1.8rem;
-            position: relative;
-        }
-        
-        /* --- 專案卡片 Grid --- */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #e2e8f0;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-
-        /* 如果你有專案截圖，可以取消註解這段 */
-        /* .card-img {
-            height: 160px;
-            background-color: #cbd5e1; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #64748b;
-        } */
-
-        .card-content { padding: 1.5rem; }
-
-        .project-title { font-size: 1.25rem; font-weight: bold; margin-bottom: 0.5rem; }
-        
-        .project-desc { 
-            font-size: 0.95rem; 
-            color: #475569; 
-            margin-bottom: 1rem; 
-            min-height: 3rem; /* 保持卡片高度一致 */
-        }
-
-        .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .tag {
-            background-color: #eff6ff;
-            color: var(--primary-color);
-            padding: 0.25rem 0.75rem;
-            border-radius: 999px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        .card-links {
-            display: flex;
-            justify-content: space-between;
-            border-top: 1px solid #e2e8f0;
-            padding-top: 1rem;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-        
-        .btn:hover { color: var(--primary-color); }
-
-        /* --- 頁尾 --- */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            color: #94a3b8;
-            font-size: 0.9rem;
-            margin-top: 4rem;
-        }
-
-        /* --- 手機版微調 --- */
-        @media (max-width: 600px) {
-            h1 { font-size: 2rem; }
-            .projects-grid { grid-template-columns: 1fr; }
-        }
-    </style>
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <div class="profile-container">
-            <h1>你的名字 / Your Name</h1>
-            <p class="subtitle">Full-Stack Engineer | AI Enthusiast | Problem Solver</p>
-            <div class="social-links">
-                <a href="https://github.com/你的帳號" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="mailto:你的Email@example.com" title="Email"><i class="fas fa-envelope"></i></a>
-                <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <nav>
+        <a href="#" class="logo" onclick="showPage('home')">Rachel</a>
+        <div class="nav-links">
+            <button class="nav-btn active" onclick="showPage('home')">關於我</button>
+            <button class="nav-btn" onclick="showPage('skills')">專業技能</button>
+            <button class="nav-btn" onclick="showPage('projects')">專案作品</button>
+            <button class="nav-btn" onclick="showPage('experience')">經歷與研究</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        
+        <div id="home" class="page-section active">
+            <div class="hero">
+                <div class="hero-text">
+                    <div class="subtitle">AI Engineer & System Architect</div>
+                    <h1>余孟潔<br><span style="font-size: 0.6em; font-style: italic; font-family:'Cormorant Garamond'">Meng Chieh Yu</span></h1>
+                    <p>
+                        結合<b>資工碩士的深度演算法實力</b>與<b>電機學士的硬體控制思維</b>。<br>
+                        我是一名熱衷於解決真實問題的 AI 工程師，專注於 Generative AI 應用落地、AI Agent 流程自動化以及醫學影像分析。致力於縮短「模型訓練」到「商業產品」的距離。
+                    </p>
+                    <a href="mailto:m.rachel.yu@gmail.com" class="cta-btn">聯絡我</a>
+                </div>
+                <div class="hero-img-container">
+					<img src="me.jpg" alt="Meng Chieh Yu" class="hero-img">
+                    <div class="hero-bg-shape"></div>
+                </div>
             </div>
         </div>
-    </header>
 
-    <main>
-        <h2 class="section-title">精選專案 (Featured Projects)</h2>
-        
-        <div class="projects-grid">
-            
-            <article class="project-card">
-                <div class="card-content">
-                    <h3 class="project-title">電商數據分析儀表板</h3>
-                    <p class="project-desc">
-                        針對中小型賣家設計的銷售數據視覺化工具，協助快速識別熱銷商品與庫存預警。
-                    </p>
-                    <div class="tech-tags">
-                        <span class="tag">React</span>
-                        <span class="tag">D3.js</span>
-                        <span class="tag">Node.js</span>
-                    </div>
-                    <div class="card-links">
-                        <a href="#" class="btn"><i class="fas fa-eye"></i> Live Demo</a>
-                        <a href="#" class="btn"><i class="fab fa-github"></i> Source Code</a>
+        <div id="skills" class="page-section">
+            <h2 style="text-align: center; margin-bottom: 3rem;">技術能力總覽 Skills Overview</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3><i class="fa-solid fa-robot"></i> GenAI & Chatbot</h3>
+                    <ul class="skill-list">
+                        <li><b>Frameworks:</b> LangChain, Ollama, Dify (RAG 知識庫)</li>
+                        <li><b>Tools:</b> Prompt Engineering, Google AI Studio, NotebookLM</li>
+                        <li><b>Automation:</b> AI Agent 流程串接, Line Bot (Cloudflare)</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card">
+                    <h3><i class="fa-solid fa-database"></i> Data Engineering</h3>
+                    <ul class="skill-list">
+                        <li><b>Crawling:</b> Craw4AI, 自動化網頁資料擷取</li>
+                        <li><b>Format:</b> HTML/CSS 結構解析, JSON 處理</li>
+                        <li><b>Pipeline:</b> 數據清洗與高品質數據集建置</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <h3><i class="fa-solid fa-brain"></i> Deep Learning</h3>
+                    <ul class="skill-list">
+                        <li><b>Core:</b> PyTorch, TensorFlow</li>
+                        <li><b>Tasks:</b> Medical Imaging (Detection), Image Relighting (Generation)</li>
+                        <li><b>Languages:</b> Python (精熟), MATLAB, C/C++</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <h3><i class="fa-solid fa-server"></i> System & Ecosystem</h3>
+                    <ul class="skill-list">
+                        <li><b>DevOps:</b> Docker, Linux, Git</li>
+                        <li><b>Microsoft:</b> Power Automate, Power BI</li>
+                        <li><b>Frontend:</b> FlutterFlow, AppSheet, Node.js</li>
+                        <li><b>Hardware:</b> Verilog, ROS (Robot Operating System)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="projects" class="page-section">
+            <h2 style="text-align: center; margin-bottom: 3rem;">精選專案 Projects Portfolio</h2>
+            <div class="project-grid">
+                
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>AI Agent 自動化應用開發</h3>
+                        <p style="margin-top: 1rem; color: #555;">利用 Dify 搭建 RAG 知識庫，並透過 n8n 串接 Line Bot 與 Google 生態圈，實現全自動化 AI 客服助理。</p>
+                        <div class="project-tags">
+                            <span class="tag">Dify</span>
+                            <span class="tag">n8n</span>
+                            <span class="tag">Line Bot</span>
+                            <span class="tag">RAG</span>
+                        </div>
                     </div>
                 </div>
-            </article>
 
-            <article class="project-card">
-                <div class="card-content">
-                    <h3 class="project-title">AI 智能客服機器人</h3>
-                    <p class="project-desc">
-                        基於 OpenAI API 開發的嵌入式客服，能夠自動回答常見 FAQ 並支援多國語言。
-                    </p>
-                    <div class="tech-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">OpenAI API</span>
-                        <span class="tag">Flask</span>
-                    </div>
-                    <div class="card-links">
-                        <a href="#" class="btn"><i class="fas fa-eye"></i> Live Demo</a>
-                        <a href="#" class="btn"><i class="fab fa-github"></i> Source Code</a>
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>肝癌術後存活期預測系統</h3>
+                        <p style="margin-top: 1rem; color: #555;">與門諾醫院合作，使用深度學習分析醫學影像，結合臨床數據預測 HAIC 治療後的患者存活率。</p>
+                        <div class="project-tags">
+                            <span class="tag">PyTorch</span>
+                            <span class="tag">Medical AI</span>
+                            <span class="tag">Data Analysis</span>
+                        </div>
                     </div>
                 </div>
-            </article>
 
-            <article class="project-card">
-                <div class="card-content">
-                    <h3 class="project-title">個人財務記帳 PWA</h3>
-                    <p class="project-desc">
-                        支援離線使用的漸進式網頁應用程式，具備自動分類與月度報表功能。
-                    </p>
-                    <div class="tech-tags">
-                        <span class="tag">Vue.js</span>
-                        <span class="tag">Firebase</span>
-                        <span class="tag">PWA</span>
-                    </div>
-                    <div class="card-links">
-                        <a href="#" class="btn"><i class="fas fa-eye"></i> Live Demo</a>
-                        <a href="#" class="btn"><i class="fab fa-github"></i> Source Code</a>
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>ROS 六軸機械手臂系統</h3>
+                        <p style="margin-top: 1rem; color: #555;">淡江大學畢業專題。基於 ROS 開發手臂控制系統，榮獲電機系創新創意競賽與機器人競賽雙料冠軍。</p>
+                        <div class="project-tags">
+                            <span class="tag">ROS</span>
+                            <span class="tag">C++</span>
+                            <span class="tag">Robotics</span>
+                        </div>
                     </div>
                 </div>
-            </article>
+
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>單影像場景重新光照系統</h3>
+                        <p style="margin-top: 1rem; color: #555;">基於內在分解的雙階段生成式模型，解決單張照片光源重塑難題，提升影像合成真實感。</p>
+                        <div class="project-tags">
+                            <span class="tag">Generative AI</span>
+                            <span class="tag">Image Processing</span>
+                            <span class="tag">Python</span>
+                        </div>
+                    </div>
+                </div>
 
             </div>
-    </main>
+        </div>
+
+        <div id="experience" class="page-section">
+            <h2 style="text-align: center; margin-bottom: 3rem;">學經歷與論文 Experience & Research</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <span class="year-tag">2021 - 2025</span>
+                        <h3>資訊工程學系 碩士</h3>
+                        <p style="color:var(--light-text)">國立東華大學</p>
+                        <ul style="margin-top: 10px; padding-left: 20px; font-size: 0.9rem;">
+                            <li>主修 AI 與醫學影像分析</li>
+                            <li>擔任影像處理、電子電路課程助教</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <span class="year-tag">Publication 2023</span>
+                        <h3>SNM Annual Conference</h3>
+                        <p>發表論文：AI-Assisted HAIC Survival Prediction.</p>
+                        <p style="font-size: 0.85rem; color: #888; margin-top:5px;">Society of Nuclear Medicine, Taichung</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <span class="year-tag">Publication 2022</span>
+                        <h3>TANET 研討會</h3>
+                        <p>發表論文：Robust Automatic Video Matting</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <span class="year-tag">2016 - 2020</span>
+                        <h3>電機工程學系 學士</h3>
+                        <p style="color:var(--light-text)">淡江大學</p>
+                        <ul style="margin-top: 10px; padding-left: 20px; font-size: 0.9rem;">
+                            <li>2019 電機系創新創意競賽 第一名</li>
+                            <li>2019 機器人創意競賽 第一名</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
     <footer>
-        <p>&copy; 2024 Your Name. All rights reserved.</p>
+        <p>&copy; 2025 Meng Chieh Yu. All Rights Reserved.</p>
+        <div class="social-icons">
+            <a href="mailto:m.rachel.yu@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+            <a href="#" title="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="#" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
