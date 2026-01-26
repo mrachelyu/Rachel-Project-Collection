@@ -370,13 +370,125 @@ footer {
 }
 
 /* RWD 調整 */
+@media screen and (max-width: 1200px) {
+    .container {
+        padding: 2rem 4%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    /* iPad Pro / Air (2025) 平板直立或橫放優化 (769px - 1024px) */
+    .hero-text h1 {
+        font-size: 3rem;
+    }
+    
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
 @media screen and (max-width: 768px) {
-    .hero { flex-direction: column-reverse; text-align: center; }
+    /* 平板直立與大尺寸手機 (iPhone Pro Max, Galaxy Ultra) */
+
+    .container {
+        margin-top: 100px; /* 增加頂部間距，避免被變高的導覽列遮擋 */
+    }
+    
+    /* 導覽列優化：轉為上下排列並可橫向滑動 */
+    nav {
+        flex-direction: column;
+        padding: 0.8rem 5%;
+        gap: 0.5rem;
+    }
+
+    .nav-links {
+        display: flex; /* 確保顯示，取代原本的 display: none */
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 5px;
+        gap: 1.5rem;
+        justify-content: flex-start; /* 手機上靠左，方便滑動 */
+        -webkit-overflow-scrolling: touch; /* iOS 滑動順暢 */
+        scrollbar-width: none; /* Firefox 隱藏滾動條 */
+    }
+    
+    /* 隱藏 Webkit 瀏覽器的滾動條 */
+    .nav-links::-webkit-scrollbar {
+        height: 0px; 
+        background: transparent;
+    }
+
+    .nav-btn {
+        font-size: 1rem;
+        padding: 0.5rem 0;
+        flex-shrink: 0; /* 防止按鈕被壓縮 */
+    }
+
+    /* Hero區塊調整 */
+    .hero { 
+        flex-direction: column-reverse; 
+        text-align: center; 
+        gap: 2rem;
+        padding-top: 1rem;
+    }
+    
+    .hero-text {
+        width: 100%;
+    }
+
     .hero-text h1 { font-size: 2.5rem; }
+    
+    .hero-img-container {
+        width: 280px;
+        height: 280px;
+        margin: 0 auto;
+    }
+
+    /* Timeline RWD */
     .timeline::after { left: 31px; }
     .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
     .timeline-item.left { text-align: left; }
     .timeline-item.left::after, .timeline-item.right::after { left: 21px; }
     .timeline-item.right { left: 0%; }
-    .nav-links { display: none; } /* 簡化版：手機隱藏選單，實際專案可加漢堡選單 */
+    
+    /* Grid 調整：在 768px 以下預設單欄較安全，或雙欄 */
+    .skills-grid, .project-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    /* 針對較寬的平板直立或摺疊機展開 (Galaxy Fold) 以及大尺寸手機橫放 */
+    .skills-grid, .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* 支援 iPhone 17/16/15 Pro, Pixel 9 Pro, Galaxy S25 等手機直立模式 */
+    .hero-text h1 { font-size: 2.2rem; }
+    
+    .hero-img-container {
+        width: 240px;
+        height: 240px;
+    }
+    
+    .cta-btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .skill-card, .project-card, .paper-item {
+        padding: 1.5rem;
+    }
+    
+    .project-grid, .skills-grid {
+        grid-template-columns: 1fr; /* 強制單欄 */
+    }
 }
