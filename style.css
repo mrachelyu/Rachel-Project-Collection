@@ -661,11 +661,22 @@ footer {
     }
     
     .skills-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .project-grid {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    /* Project Card RWD: Card Stack */
+    .project-card {
+        flex-direction: column;
+    }
+    
+    .project-img {
+        width: 100%;
+        height: 200px;
+        flex: none;
     }
 
     /* Highlights RWD: Tablet Landscape / Small Laptops */
@@ -743,17 +754,6 @@ footer {
     .skills-grid, .highlights-container {
         grid-template-columns: 1fr;
         gap: 1.5rem;
-    }
-
-    /* Project Card RWD: Mobile/Tablet Stack */
-    .project-card {
-        flex-direction: column;
-    }
-    
-    .project-img {
-        width: 100%;
-        height: 200px;
-        flex: none;
     }
 }
 
