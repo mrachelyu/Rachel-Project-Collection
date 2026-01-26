@@ -1,29 +1,46 @@
 console.log("JS loaded!");
-function showPage(pageId) {
-    // 隱藏所有頁面
+
+document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('.page-section');
-    sections.forEach(section => {
-        section.classList.remove('active');
-    });
+    const navLinks = document.querySelectorAll('.nav-btn');
 
-    // 移除所有按鈕的 active 樣式
-    const buttons = document.querySelectorAll('.nav-btn');
-    buttons.forEach(btn => {
-        btn.classList.remove('active');
-    });
+    function changeLinkState() {
+        let index = sections.length;
 
-    // 顯示選中的頁面
-    document.getElementById(pageId).classList.add('active');
-
-    // 點擊 Logo 回首頁時不需要高亮特定按鈕
-    if(pageId === 'home') {
-        document.querySelector("button[onclick=\"showPage('home')\"]").classList.add('active');
-    } else {
-        // 找出對應的按鈕並加上 active
-        const activeBtn = Array.from(buttons).find(btn => btn.getAttribute('onclick').includes(pageId));
-        if (activeBtn) activeBtn.classList.add('active');
+        // Find the section that is currently in view
+        while(--index && window.scrollY + 200 < sections[index].offsetTop) {}
+        
+        navLinks.forEach((link) => link.classList.remove('active'));
+        
+        if (index >= 0) {
+            const id = sections[index].id;
+             navLinks.forEach(link => {
+                if(link.getAttribute('href') === `#${id}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
     }
-    
-    // 捲動回頂部
-    window.scrollTo(0, 0);
-}
+
+    changeLinkState();
+    window.addEventListener('scroll', changeLinkState);
+
+    // Scroll Reveal Animation
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                revealObserver.unobserve(entry.target); //只觸發一次
+            }
+        });
+    }, {
+        root: null,
+        threshold: 0.15, // 元素出現 15% 時觸發
+        rootMargin: "0px"
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+});
+

@@ -3,10 +3,12 @@
     --primary-color: #556B2F; /* 橄欖綠/鼠尾草綠 - 清新 */
     --accent-color: #C19A6B; /* 古銅金 - 古典 */
     --bg-color: #F9F7F2; /* 米白紙張質感 */
+    --bg-gradient: linear-gradient(135deg, #F9F7F2 0%, #F0F4E8 100%); /* 漸層背景 */
     --text-color: #333333; /* 深灰 */
     --light-text: #666666;
     --white: #FFFFFF;
     --card-shadow: 0 4px 20px rgba(85, 107, 47, 0.08);
+    --btn-gradient: linear-gradient(135deg, #556B2F 0%, #768f45 100%);
 }
 
 * {
@@ -18,10 +20,11 @@
 
 body {
     font-family: 'Noto Sans TC', sans-serif;
-    background-color: var(--bg-color);
+    background: var(--bg-gradient);
     color: var(--text-color);
     line-height: 1.6;
     overflow-x: hidden;
+    background-attachment: fixed; /* 讓漸層背景固定 */
 }
 
 h1, h2, h3, h4 {
@@ -67,6 +70,7 @@ nav {
     cursor: pointer;
     padding: 0.5rem 0;
     position: relative;
+    text-decoration: none;
 }
 
 .nav-btn:hover, .nav-btn.active {
@@ -88,26 +92,21 @@ nav {
     width: 100%;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* 頁面容器 */
 .container {
-    margin-top: 80px;
     padding: 2rem 5%;
     min-height: 100vh;
 }
 
-/* 頁面切換邏輯 */
+/* 頁面切換邏輯 - 改為一頁式 */
 .page-section {
-    display: none;
-    animation: fadeIn 0.8s ease-out;
-}
-
-.page-section.active {
     display: block;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    padding-top: 80px; /* 預留 navbar 高度 */
+    margin-bottom: 4rem; /* 區塊間距 */
 }
 
 /* 首頁 (Home) */
@@ -143,31 +142,51 @@ nav {
 .hero-text p {
     font-size: 1.1rem;
     color: var(--light-text);
+    margin-bottom: 1.5rem;
+}
+
+.job-tags {
     margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.job-tag {
+    background: var(--white);
+    color: var(--primary-color);
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid var(--accent-color);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 .cta-btn {
     display: inline-block;
     padding: 0.8rem 2rem;
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
+    border: none;
+    background: var(--btn-gradient);
+    color: var(--white);
     text-decoration: none;
     border-radius: 50px;
     font-family: 'Noto Serif TC', serif;
     transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(85, 107, 47, 0.2);
 }
 
 .cta-btn:hover {
-    background-color: var(--primary-color);
-    color: var(--white);
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(85, 107, 47, 0.2);
+    box-shadow: 0 8px 20px rgba(85, 107, 47, 0.3);
+    filter: brightness(1.1);
 }
 
 .hero-img-container {
     position: relative;
     width: 350px;
     height: 350px;
+    animation: float 6s ease-in-out infinite;
 }
 
 .hero-img {
@@ -190,6 +209,30 @@ nav {
     border: 2px solid var(--accent-color);
     border-radius: 50% 50% 0 50%;
     z-index: 1;
+    transition: transform 0.5s ease;
+}
+
+.hero-img-container:hover .hero-bg-shape {
+    transform: translate(10px, -10px);
+}
+
+/* 浮動動畫 */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* 滾動動畫 Reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* 技能頁 (Skills) */
@@ -234,7 +277,7 @@ nav {
 /* 經歷與學歷 (Experience) */
 .timeline {
     position: relative;
-    max-width: 800px;
+    max-width: 1000px; /* 加寬容器以容納更多內容 */
     margin: 0 auto;
 }
 
@@ -257,8 +300,17 @@ nav {
     box-sizing: border-box;
 }
 
-.timeline-item.left { left: 0; text-align: right; }
-.timeline-item.right { left: 50%; }
+.timeline-item.left { 
+    left: 0; 
+    padding-left: 10px; /* 減少外側 padding */
+    padding-right: 50px; /* 保持與中線距離 */
+}
+
+.timeline-item.right { 
+    left: 50%; 
+    padding-right: 10px; /* 減少外側 padding */
+    padding-left: 50px; /* 保持與中線距離 */
+}
 
 .timeline-item::after {
     content: '';
@@ -268,7 +320,7 @@ nav {
     right: -8px;
     background-color: var(--bg-color);
     border: 3px solid var(--primary-color);
-    top: 15px;
+    top: 24px; /* 對齊內容頂部 */
     border-radius: 50%;
     z-index: 1;
 }
@@ -276,10 +328,11 @@ nav {
 .timeline-item.right::after { left: -8px; }
 
 .timeline-content {
-    padding: 20px;
+    padding: 24px;
     background-color: var(--white);
-    border-radius: 8px;
+    border-radius: 12px;
     box-shadow: var(--card-shadow);
+    text-align: left; /* 強制內容靠左對齊，提升閱讀性 */
 }
 
 .year-tag {
@@ -296,8 +349,10 @@ nav {
 /* 專案作品 (Projects) */
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: 1fr; /* 改為單欄列表式排版 */
     gap: 2.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .project-card {
@@ -306,21 +361,89 @@ nav {
     overflow: hidden;
     box-shadow: var(--card-shadow);
     transition: transform 0.3s;
+    display: flex; /* Flexbox 左右排版 */
+    flex-direction: row;
+    align-items: stretch;
 }
 
 .project-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
+}
+
+.project-img {
+    flex: 0 0 280px; /* 固定左側圖片寬度 */
+    background: #f1f3eb; /* 淺綠灰 placeholder 背景 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    color: rgba(85, 107, 47, 0.4);
+    min-height: 200px;
+}
+
+.project-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .project-content {
     padding: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .project-tags {
-    margin-top: 1rem;
+    margin-top: auto; /* 將標籤推到底部 */
+    padding-top: 1rem;
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+}
+
+.read-more-btn {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 1.5rem; /* 與上方標籤區隔 */
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    align-self: flex-start;
+    transition: all 0.3s;
+    position: relative;
+    padding-bottom: 2px;
+}
+
+.read-more-btn::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s;
+}
+
+.read-more-btn:hover {
+    color: var(--accent-color);
+}
+
+.read-more-btn:hover::after {
+    width: 100%;
+}
+
+.read-more-btn i {
+    margin-left: 6px;
+    font-size: 0.8rem;
+    transition: transform 0.3s;
+}
+
+.read-more-btn:hover i {
+    transform: translateX(4px);
 }
 
 .tag {
@@ -369,6 +492,161 @@ footer {
     margin: 0 10px;
 }
 
+/* --- New Sections CSS --- */
+
+/* Hero Buttons */
+.hero-btns {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.cta-btn.secondary {
+    background: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    box-shadow: none;
+}
+
+.cta-btn.secondary:hover {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--white);
+    box-shadow: 0 5px 15px rgba(193, 154, 107, 0.3);
+}
+
+/* Highlights Section */
+.highlights-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.highlight-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    text-align: center;
+    border-top: 4px solid var(--accent-color);
+    width: 100%;
+}
+
+.highlight-card .icon-box {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.highlight-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.highlight-card p {
+    font-size: 0.95rem;
+    color: var(--light-text);
+    text-align: justify;
+}
+
+/* Education Section */
+.education-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.edu-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.edu-year {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    min-width: 120px;
+    padding-top: 5px;
+}
+
+.edu-content h3 {
+    margin-bottom: 0.5rem;
+}
+
+.edu-content h4 {
+    font-size: 1rem;
+    color: var(--light-text);
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+.edu-content p {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* Contact Section */
+.contact-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-intro {
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    color: var(--text-color);
+}
+
+.contact-cards {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.contact-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    text-decoration: none;
+    color: var(--text-color);
+    width: 200px;
+    transition: transform 0.3s;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+}
+
+.contact-card .icon {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.contact-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.contact-card p {
+    font-size: 0.85rem;
+    color: var(--light-text);
+    word-break: break-all;
+}
+
 /* RWD 調整 */
 @media screen and (max-width: 1200px) {
     .container {
@@ -388,6 +666,11 @@ footer {
 
     .project-grid {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    /* Highlights RWD: Tablet Landscape / Small Laptops */
+    .highlights-container {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -457,15 +740,26 @@ footer {
     .timeline-item.right { left: 0%; }
     
     /* Grid 調整：在 768px 以下預設單欄較安全，或雙欄 */
-    .skills-grid, .project-grid {
+    .skills-grid, .highlights-container {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+    }
+
+    /* Project Card RWD: Mobile/Tablet Stack */
+    .project-card {
+        flex-direction: column;
+    }
+    
+    .project-img {
+        width: 100%;
+        height: 200px;
+        flex: none;
     }
 }
 
 @media screen and (min-width: 481px) and (max-width: 768px) {
     /* 針對較寬的平板直立或摺疊機展開 (Galaxy Fold) 以及大尺寸手機橫放 */
-    .skills-grid, .project-grid {
+    .skills-grid, .highlights-container {
         grid-template-columns: repeat(2, 1fr);
     }
 }
@@ -488,7 +782,13 @@ footer {
         padding: 1.5rem;
     }
     
-    .project-grid, .skills-grid {
+    .project-grid, .skills-grid, .highlights-container {
         grid-template-columns: 1fr; /* 強制單欄 */
+    }
+
+    /* Edu Card RWD */
+    .edu-card {
+        flex-direction: column;
+        gap: 0.5rem;
     }
 }

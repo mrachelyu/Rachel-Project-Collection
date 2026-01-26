@@ -14,12 +14,15 @@
 <body>
 
     <nav>
-        <a href="#" class="logo" onclick="showPage('home')">Rachel</a>
+        <a href="#home" class="logo">Rachel</a>
         <div class="nav-links">
-            <button class="nav-btn active" onclick="showPage('home')">關於我</button>
-            <button class="nav-btn" onclick="showPage('skills')">專業技能</button>
-            <button class="nav-btn" onclick="showPage('projects')">專案作品</button>
-            <button class="nav-btn" onclick="showPage('experience')">經歷與研究</button>
+            <a href="#home" class="nav-btn">個人簡介</a>
+            <a href="#highlights" class="nav-btn">核心競爭力</a>
+            <a href="#skills" class="nav-btn">專業技能</a>
+            <a href="#education" class="nav-btn">學歷</a>
+            <a href="#experience" class="nav-btn">經歷與研究</a>
+            <a href="#projects" class="nav-btn">作品集</a>
+            <a href="#contact" class="nav-btn">聯絡我</a>
         </div>
     </nav>
 
@@ -30,11 +33,28 @@
                 <div class="hero-text">
                     <div class="subtitle">AI Engineer & System Architect</div>
                     <h1>余孟潔<br><span style="font-size: 0.6em; font-style: italic; font-family:'Cormorant Garamond'">Meng Chieh Yu</span></h1>
+                    <!-- <p>
+                        結合<strong>資工碩士的深度演算法實力</strong>與<strong>電機學士的硬體控制思維</strong>。主要致力於縮短<strong>模型訓練</strong>到<strong>商業產品</strong>的距離。<br>
+                        專注於將<strong>深度學習</strong>、<strong>Generative AI</strong>、<strong>AI Agent 流程自動化</strong>等技術整合為可實際落地的產品與服務，成為能從底層技術到應用部署的端到端工程解決方案提供者。<br>
+                        
+                    </p> -->
                     <p>
-                        結合<b>資工碩士的深度演算法實力</b>與<b>電機學士的硬體控制思維</b>。<br>
-                        我是一名熱衷於解決真實問題的 AI 工程師，專注於 Generative AI 應用落地、AI Agent 流程自動化以及醫學影像分析。致力於縮短「模型訓練」到「商業產品」的距離。
+                        結合<strong>資工碩士的演算法深度</strong>與<strong>電機學士的系統思維</strong>，  
+                        專注將<strong>深度學習</strong>與<strong>生成式AI的技術</strong>轉化為可部署、可擴展的<strong>實際產品</strong>，  
+                        打造從模型到上線的<strong>端到端工程解決方案</strong>。
                     </p>
-                    <a href="mailto:m.rachel.yu@gmail.com" class="cta-btn">聯絡我</a>
+                    <div class="job-tags">
+                        <span class="job-tag">AI / 演算法工程師</span>
+                        <span class="job-tag">全端工程師</span>
+                        <span class="job-tag">資料科學家</span>
+                        <span class="job-tag">韌體工程師</span>
+                        <span class="job-tag">RD</span>
+                        <span class="job-tag">PM</span>
+                    </div>
+                    <div class="hero-btns">
+                        <a href="#contact" class="cta-btn">聯絡我</a>
+                        <a href="#projects" class="cta-btn secondary">作品集</a>
+                    </div>
                 </div>
                 <div class="hero-img-container">
 					<img src="me.jpg" alt="Meng Chieh Yu" class="hero-img">
@@ -43,13 +63,76 @@
             </div>
         </div>
 
-        <div id="skills" class="page-section">
+        <div id="highlights" class="page-section reveal">
+            <h2 style="text-align: center; margin-bottom: 3rem;">個人亮點 & 核心競爭力 Highlights</h2>
+
+            <div class="highlights-container">
+
+                <div class="highlight-card">
+                    <div class="icon-box"><i class="fa-solid fa-microchip"></i></div>
+                    <h3>軟硬體整合背景</h3>
+                    <p>
+                        結合<b>電機工程</b>的系統與硬體控制思維，與<b>資工碩士</b>的演算法與架構能力，
+                        能從底層理解效能、穩定性與整體系統行為，處理單一領域工程師難以解決的整合問題。
+                    </p>
+                </div>
+
+                <div class="highlight-card">
+                    <div class="icon-box"><i class="fa-solid fa-brain"></i></div>
+                    <h3>深度 AI 工程實力</h3>
+                    <p>
+                        具備從<b>資料前處理、模型設計、訓練與優化</b>到<b>推論與效能評估</b>的完整經驗，
+                        熟悉 PyTorch / TensorFlow，能真正理解模型行為，而非僅停留在工具使用層。
+                    </p>
+                </div>
+
+                <div class="highlight-card">
+                    <div class="icon-box"><i class="fa-solid fa-rocket"></i></div>
+                    <h3>AI 落地實戰派</h3>
+                    <p>
+                        不只關注模型準確率，更重視<b>從 Demo 到 Product</b> 的最後一哩路，
+                        擅長將<b>Generative AI、RAG 與 Agent 流程</b>整合為可部署、可維運的實際應用。
+                    </p>
+                </div>
+
+                <div class="highlight-card">
+                    <div class="icon-box"><i class="fa-solid fa-database"></i></div>
+                    <h3>資料工程與系統整合</h3>
+                    <p>
+                        具備<b>網頁爬蟲、資料清洗、API 串接</b>與後端服務建構經驗，
+                        能建立穩定的資料流與系統管線，支撐 AI 模型、分析與自動化流程的長期運作。
+                    </p>
+                </div>
+
+                <div class="highlight-card">
+                    <div class="icon-box"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3>數據驅動決策</h3>
+                    <p>
+                        習慣以<b>數據與指標</b>驗證假設，擅長使用 Power BI 與分析工具將資料視覺化，
+                        從雜訊中萃取關鍵洞察，讓工程與產品決策建立在可量化、可追蹤的依據之上。
+                    </p>
+                </div>
+
+                <div class="highlight-card">
+                    <div class="icon-box"><i class="fa-solid fa-people-arrows"></i></div>
+                    <h3>溝通與協作能力</h3>
+                    <p>
+                        曾帶領專題團隊並擔任多門課程助教，能將複雜技術清楚轉譯給不同背景的對象，
+                        在工程、產品與非技術角色之間，成為可靠的溝通橋樑。
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div id="skills" class="page-section reveal">
             <h2 style="text-align: center; margin-bottom: 3rem;">技術能力總覽 Skills Overview</h2>
             <div class="skills-grid">
                 <div class="skill-card">
                     <h3><i class="fa-solid fa-robot"></i> GenAI & Chatbot</h3>
                     <ul class="skill-list">
-                        <li><b>Frameworks:</b> LangChain, Ollama, Dify (RAG 知識庫)</li>
+                        <li><b>Frameworks:</b> LangChain, Ollama, Dify (RAG 知識庫), n8n</li>
                         <li><b>Tools:</b> Prompt Engineering, Google AI Studio, NotebookLM</li>
                         <li><b>Automation:</b> AI Agent 流程串接, Line Bot (Cloudflare)</li>
                     </ul>
@@ -85,24 +168,102 @@
             </div>
         </div>
 
-        <div id="projects" class="page-section">
+        <!-- Education Section -->
+        <div id="education" class="page-section reveal">
+            <h2 style="text-align: center; margin-bottom: 3rem;">學歷 Education</h2>
+            <div class="education-container">
+                <div class="edu-card">
+                    <div class="edu-year">2021 - 2025</div>
+                    <div class="edu-content">
+                        <h3>資訊工程學系 碩士</h3>
+                        <h4>國立東華大學 National Dong Hwa University</h4>
+                        <p>主修 AI 與醫學影像分析。擔任影像處理、電子電路課程助教，不僅鑽研理論，更累積豐富的教學與實作經驗。</p>
+                    </div>
+                </div>
+                <div class="edu-card">
+                    <div class="edu-year">2016 - 2020</div>
+                    <div class="edu-content">
+                        <h3>電機工程學系 學士</h3>
+                        <h4>淡江大學 Tamkang University</h4>
+                        <p>專注於硬體控制與機器人系統。曾獲 2019 電機系創新創意競賽第一名、機器人創意競賽第一名。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="experience" class="page-section reveal">
+            <h2 style="text-align: center; margin-bottom: 3rem;">經歷與研究 Experience & Research</h2>
+            
+            <div class="timeline">
+                <!-- 2025 CVGIP -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <span class="year-tag">Publication 2025</span>
+                        <h3>CVGIP 電腦視覺、圖學與影像處理研討會</h3>
+                        <p>發表論文：Single-Image Scene Relighting with Intrinsic Decomposition</p>
+                    </div>
+                </div>
+
+                <!-- NDHU Experience -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <span class="year-tag">2021 - 2025</span>
+                        <h3>國立東華大學 課程與研究經歷</h3>
+                        <ul style="margin-top: 10px; padding-left: 20px; font-size: 0.9rem;">
+                            <li><b>課程助教 (TA):</b> 影像處理、電子電路、圖書館利用教育 <br>(2021/09 – 2025/06)</li>
+                            <li><b>國科會計畫專案助理:</b> 協助執行研究計畫與實驗 <br>(2021/09 – 2025/06)</li>
+                            <li><b>資工系辦工讀:</b> 協助系務行政與活動辦理 <br>(2021/09 – 2024/06)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 2023 SNM & Project -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <span class="year-tag">2023</span>
+                        <h3>SNM Annual Conference & 產學合作</h3>
+                        <p><b>發表論文：</b>AI-Assisted HAIC Survival Prediction (Society of Nuclear Medicine, Taichung)</p>
+                        <p style="margin-top: 5px; font-size: 0.9rem; color: #666;">
+                            <i class="fa-solid fa-trophy" style="color: var(--accent-color); margin-right: 5px;"></i>
+                            同項研究入選 <b>2023 青年鏈結地方產業專題計畫</b>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 2022 TANET -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <span class="year-tag">Publication 2022</span>
+                        <h3>TANET 研討會</h3>
+                        <p>發表論文於臺灣網際網路研討會：Robust Automatic Video Matting</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="projects" class="page-section reveal">
             <h2 style="text-align: center; margin-bottom: 3rem;">精選專案 Projects Portfolio</h2>
             <div class="project-grid">
                 
                 <div class="project-card">
+                    <div class="project-img">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
                     <div class="project-content">
-                        <h3>AI Agent 自動化應用開發</h3>
-                        <p style="margin-top: 1rem; color: #555;">利用 Dify 搭建 RAG 知識庫，並透過 n8n 串接 Line Bot 與 Google 生態圈，實現全自動化 AI 客服助理。</p>
+                        <h3>驗證碼驗證系統 — Power Automate + LINE Messaging API</h3>
+                        <p style="margin-top: 1rem; color: #555;">利用 Power Automate 結合 LINE Messaging API，打造高效、可擴展且低成本的企業級身份驗證機制；支援雙重驗證、單點登入與事件式授權管理，同時符合資安控管與稽核需求。</p>
                         <div class="project-tags">
-                            <span class="tag">Dify</span>
-                            <span class="tag">n8n</span>
-                            <span class="tag">Line Bot</span>
-                            <span class="tag">RAG</span>
+                            <span class="tag">Power Automate</span>
+                            <span class="tag">LINE Messaging API</span>
+                            <span class="tag">身份驗證</span>
+                            <span class="tag">資安</span>
                         </div>
+                        <a href="https://docs.google.com/presentation/d/17HA-iuDHW4pA4flLHLoYwe3fLvQp5sKMl0LL4gHK9Fs/edit?usp=sharing" class="read-more-btn">了解更多 <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
-
                 <div class="project-card">
+                    <div class="project-img">
+                        <i class="fa-solid fa-laptop-medical"></i>
+                    </div>
                     <div class="project-content">
                         <h3>肝癌術後存活期預測系統</h3>
                         <p style="margin-top: 1rem; color: #555;">與門諾醫院合作，使用深度學習分析醫學影像，結合臨床數據預測 HAIC 治療後的患者存活率。</p>
@@ -111,10 +272,15 @@
                             <span class="tag">Medical AI</span>
                             <span class="tag">Data Analysis</span>
                         </div>
+                        <a href="https://docs.google.com/presentation/d/1IuTpCwlmvep79jyaLIIR_-6Tgrt1L0jH/edit?usp=drive_link&ouid=111761586046971286088&rtpof=true&sd=true" class="read-more-btn">了解更多 <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
 
                 <div class="project-card">
+                    <div class="project-img">
+                        <i class="fa-solid fa-arm"></i> <!-- Placeholder for Robot Arm -->
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </div>
                     <div class="project-content">
                         <h3>ROS 六軸機械手臂系統</h3>
                         <p style="margin-top: 1rem; color: #555;">淡江大學畢業專題。基於 ROS 開發手臂控制系統，榮獲電機系創新創意競賽與機器人競賽雙料冠軍。</p>
@@ -123,10 +289,14 @@
                             <span class="tag">C++</span>
                             <span class="tag">Robotics</span>
                         </div>
+                        <a href="https://docs.google.com/presentation/d/1N9QA8iXtfUNrvcARkr0TmMp4eKb2VDEq/edit?usp=drive_link&ouid=111761586046971286088&rtpof=true&sd=true" class="read-more-btn">了解更多 <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
 
                 <div class="project-card">
+                    <div class="project-img">
+                        <i class="fa-solid fa-image"></i>
+                    </div>
                     <div class="project-content">
                         <h3>單影像場景重新光照系統</h3>
                         <p style="margin-top: 1rem; color: #555;">基於內在分解的雙階段生成式模型，解決單張照片光源重塑難題，提升影像合成真實感。</p>
@@ -135,10 +305,14 @@
                             <span class="tag">Image Processing</span>
                             <span class="tag">Python</span>
                         </div>
+                        <a href="https://drive.google.com/file/d/1-_ClLtNX_ulj6tCfeh2iS0Os7uxbQyPF/view?usp=drive_link" class="read-more-btn">了解更多 <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
 
                 <div class="project-card">
+                    <div class="project-img">
+                        <i class="fa-solid fa-truck-fast"></i>
+                    </div>
                     <div class="project-content">
                         <h3>網購退貨流程自動化</h3>
                         <p style="margin-top: 1rem; color: #555;">設計電商平台退貨處理流程，從客戶申請、審核、物流到退款，並以 Mermaid 畫出完整流程圖。<br><b>工具：</b>Mermaid、Python（流程自動化腳本）<br><b>分析內容：</b>流程設計、節點自動化、系統整合。</p>
@@ -147,10 +321,14 @@
                             <span class="tag">Python</span>
                             <span class="tag">流程自動化</span>
                         </div>
+                        <a href="https://docs.google.com/presentation/d/1fiJU8HVkFhVBHA63lWg17Fc-RK6h28vk6YQ44KXh4ng/edit?usp=sharing" class="read-more-btn">了解更多 <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
 
                 <div class="project-card">
+                    <div class="project-img">
+                        <i class="fa-solid fa-chart-simple"></i>
+                    </div>
                     <div class="project-content">
                         <h3>電商轉換率下降分析與預測</h3>
                         <p style="margin-top: 1rem; color: #555;">針對「ShopWave」平台轉換率下降問題，分析流量、天氣、促銷等因素，並以 Python 製作圖表與建立 AI 銷售預測模型，進行 What-if 模擬。<br><b>工具：</b>Python（pandas、matplotlib、scikit-learn）、Jupyter Notebook<br><b>分析內容：</b>因素探討、相關性分析、AI 預測、促銷/UX 模擬。</p>
@@ -160,55 +338,71 @@
                             <span class="tag">AI預測</span>
                             <span class="tag">E-commerce</span>
                         </div>
+                        <a href="https://docs.google.com/presentation/d/14RTjS6xCoDXugWD0iOqMfAWBjBHIPu0ub9lnLlYUqgM/edit?usp=sharing" class="read-more-btn">了解更多 <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
-
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fa-solid fa-keyboard"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>鍵盤供應商推薦網站 — 顏色/尺寸智能推薦 + Ollama 聊天機器人</h3>
+                        <p style="margin-top: 1rem; color: #555;">
+                            為鍵盤供應商打造的線上推薦平台，使用者可依喜好顏色、鍵盤尺寸與鍵軸偏好取得個性化商品推薦；同時串接 Ollama 部署的聊天機器人，提供即時產品諮詢、配件建議與購買協助。
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">推薦系統</span>
+                            <span class="tag">Ollama</span>
+                            <span class="tag">Chatbot</span>
+                            <span class="tag">Frontend</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <a href="https://rachelkbdemo.monrachel.me/" class="read-more-btn">了解更多 <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fa-solid fa-spider"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>MonAgent — Crawl4AI + Ollama RAG 爬蟲問答代理</h3>
+                        <p style="margin-top: 1rem; color: #555;">
+                            使用 Crawl4AI 抓取目標網址內容，經資料清洗與向量化後建立 RAG 知識庫，串接 Ollama 的本地 LLM，提供基於該網站資料的即時問答與檢索式回覆。
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Crawl4AI</span>
+                            <span class="tag">Ollama</span>
+                            <span class="tag">RAG</span>
+                            <span class="tag">Web Scraping</span>
+                            <span class="tag">Vector DB</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <a href="https://monagent.monrachel.me/" class="read-more-btn">了解更多 <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div id="experience" class="page-section">
-            <h2 style="text-align: center; margin-bottom: 3rem;">學經歷與論文 Experience & Research</h2>
-            
-            <div class="timeline">
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <span class="year-tag">2021 - 2025</span>
-                        <h3>資訊工程學系 碩士</h3>
-                        <p style="color:var(--light-text)">國立東華大學</p>
-                        <ul style="margin-top: 10px; padding-left: 20px; font-size: 0.9rem;">
-                            <li>主修 AI 與醫學影像分析</li>
-                            <li>擔任影像處理、電子電路課程助教</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <span class="year-tag">Publication 2023</span>
-                        <h3>SNM Annual Conference</h3>
-                        <p>發表論文：AI-Assisted HAIC Survival Prediction.</p>
-                        <p style="font-size: 0.85rem; color: #888; margin-top:5px;">Society of Nuclear Medicine, Taichung</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <span class="year-tag">Publication 2022</span>
-                        <h3>TANET 研討會</h3>
-                        <p>發表論文：Robust Automatic Video Matting</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <span class="year-tag">2016 - 2020</span>
-                        <h3>電機工程學系 學士</h3>
-                        <p style="color:var(--light-text)">淡江大學</p>
-                        <ul style="margin-top: 10px; padding-left: 20px; font-size: 0.9rem;">
-                            <li>2019 電機系創新創意競賽 第一名</li>
-                            <li>2019 機器人創意競賽 第一名</li>
-                        </ul>
-                    </div>
+        <div id="contact" class="page-section reveal">
+            <h2 style="text-align: center; margin-bottom: 3rem;">聯絡我 Contact Me</h2>
+            <div class="contact-container">
+                <p class="contact-intro">對於 AI 應用、系統整合有任何想法嗎？<br>或者想聊聊技術與合作機會？歡迎隨時聯繫我！</p>
+                
+                <div class="contact-cards">
+                    <a href="mailto:m.rachel.yu@gmail.com" class="contact-card">
+                        <div class="icon"><i class="fa-solid fa-envelope"></i></div>
+                        <h3>Email</h3>
+                        <p>m.rachel.yu@gmail.com</p>
+                    </a>
+                    <a href="#" class="contact-card">
+                        <div class="icon"><i class="fa-brands fa-linkedin"></i></div>
+                        <h3>LinkedIn</h3>
+                        <p>Connect with me</p>
+                    </a>
+                    <a href="#" class="contact-card">
+                        <div class="icon"><i class="fa-brands fa-github"></i></div>
+                        <h3>GitHub</h3>
+                        <p>Check my repos</p>
+                    </a>
                 </div>
             </div>
         </div>
