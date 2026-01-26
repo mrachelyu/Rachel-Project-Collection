@@ -32,12 +32,12 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
-                revealObserver.unobserve(entry.target); //只觸發一次
+                revealObserver.unobserve(entry.target); // 觸發後即停止觀察
             }
         });
     }, {
         root: null,
-        threshold: 0.15, // 元素出現 15% 時觸發
+        threshold: 0.05, // 降低閾值：避免在手機上因區塊過長（內容高度 > Viewport 高度）導致無法觸發 Intersection
         rootMargin: "0px"
     });
 
